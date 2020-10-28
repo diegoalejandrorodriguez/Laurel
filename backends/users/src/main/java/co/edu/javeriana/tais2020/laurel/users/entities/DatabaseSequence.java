@@ -2,7 +2,7 @@ package co.edu.javeriana.tais2020.laurel.users.entities;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Id;
+import org.springframework.data.annotation.Id;
 
 @Document(collection = "database_sequences")
 public class DatabaseSequence {

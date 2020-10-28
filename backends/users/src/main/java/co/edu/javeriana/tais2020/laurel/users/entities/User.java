@@ -3,8 +3,8 @@ package co.edu.javeriana.tais2020.laurel.users.entities;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.Id;
-import javax.persistence.Transient;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
