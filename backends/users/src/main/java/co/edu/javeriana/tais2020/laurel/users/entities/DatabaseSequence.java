@@ -1,2 +1,31 @@
-package co.edu.javeriana.tais2020.laurel.users.entities;public class DatabaseSequence {
+package co.edu.javeriana.tais2020.laurel.users.entities;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.persistence.Id;
+
+@Document(collection = "database_sequences")
+public class DatabaseSequence {
+
+    @Id
+    private String id;
+    private long seq;
+
+    public DatabaseSequence() {}
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public long getSeq() {
+        return seq;
+    }
+
+    public void setSeq(long seq) {
+        this.seq = seq;
+    }
 }

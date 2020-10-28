@@ -1,18 +1,34 @@
 package co.edu.javeriana.tais2020.laurel.users.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import org.springframework.data.mongodb.core.index.Indexed;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+import javax.persistence.Id;
+import javax.persistence.Transient;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
+
+@Document(collection = "User")
 public class User {
+
+    @Transient
+    public static final String SEQUENCE_NAME = "users_sequence";
+
+    @Id
     private Long id;
     private String name;
     private String lastName;
     private String documentType;
     private String documentNumber;
+
+    @NotBlank
+    @Size(max = 100)
+    @Indexed(unique = true)
     private String email;
 
-    @Id
+    public User() {
+    }
+
     public Long getId() {
         return id;
     }

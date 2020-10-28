@@ -17,6 +17,9 @@ public class UsersServiceImpl implements UsersService {
     @Autowired
     private UsersRepository repository;
 
+    @Autowired
+    private SequenceGeneratorService sequenceGeneratorService;
+
     @Override
     public List<User> getAllUsers() {
         List<User> result = new ArrayList<>();
@@ -29,6 +32,7 @@ public class UsersServiceImpl implements UsersService {
     }
 
     public User createUser(User user) {
+        user.setId(sequenceGeneratorService.generateSequence(User.SEQUENCE_NAME));
         return repository.save(user);
     }
 

@@ -30,7 +30,7 @@ import static org.hamcrest.Matchers.*;
 @WebMvcTest(UsersController.class)
 class UsersControllerTest {
     @MockBean
-    private static UsersService usersService;
+    private UsersService usersService;
 
     @Autowired
     private MockMvc mockMvc;
@@ -54,7 +54,7 @@ class UsersControllerTest {
         when(usersService.createUser(any(User.class))).thenReturn(user1);
 
         //test
-        mockMvc.perform(post("/users")
+        mockMvc.perform(post("/api/v1/users/")
                 .content(mapper.writeValueAsString(user1))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -78,7 +78,7 @@ class UsersControllerTest {
         when(usersService.getUser(any(Long.class))).thenReturn(user1);
 
         //test
-        mockMvc.perform(get("/users/1")
+        mockMvc.perform(get("/api/v1/users/1")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name").value(user1.getName()))
@@ -101,7 +101,7 @@ class UsersControllerTest {
         when(usersService.updateUser(any(User.class))).thenReturn(user1);
 
         //test
-        mockMvc.perform(put("/users/1")
+        mockMvc.perform(put("/api/v1/users/1")
                 .content(mapper.writeValueAsString(user1))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
@@ -117,7 +117,7 @@ class UsersControllerTest {
         when(usersService.deleteUser(any(Long.class))).thenReturn(true);
 
         //test
-        mockMvc.perform(delete("/users/1"))
+        mockMvc.perform(delete("/api/v1/users/1"))
                 .andExpect(status().isAccepted());
     }
 
@@ -142,7 +142,7 @@ class UsersControllerTest {
         when(usersService.getAllUsers()).thenReturn(Arrays.asList(user1, user2));
 
         //test
-        mockMvc.perform(get("/users"))
+        mockMvc.perform(get("/api/v1/users/"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.users").isArray())
                 .andExpect(jsonPath("$.users", hasSize(2)))
