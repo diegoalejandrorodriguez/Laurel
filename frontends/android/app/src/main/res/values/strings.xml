@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Laurel</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">Inicio</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_menu">Más</string>
+    <string name="title_shopping">Mis Compras</string>
 </resources>
