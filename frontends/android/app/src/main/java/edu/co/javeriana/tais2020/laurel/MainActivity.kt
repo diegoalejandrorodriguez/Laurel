@@ -1,8 +1,10 @@
 package edu.co.javeriana.tais2020.laurel
 
 import android.os.Bundle
+import android.view.Menu
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.SearchView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -22,5 +24,24 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home, R.id.navigation_shopping, R.id.navigation_notifications, R.id.navigation_menu))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.top_menu, menu)
+        menu?.let {menu->
+            val searchItem = menu.findItem(R.id.search_icon)
+            val searchView = searchItem.actionView as SearchView
+            searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
+                override fun onQueryTextSubmit(query: String?): Boolean {
+                    return true
+                }
+
+                override fun onQueryTextChange(newText: String?): Boolean {
+                    return true
+                }
+            })
+        }
+
+        return super.onCreateOptionsMenu(menu)
     }
 }
