@@ -17,13 +17,14 @@
             app:cardMaxElevation="20dp"
             app:cardCornerRadius="5dp"
             android:layout_height="150dp"
-            android:layout_margin="30dp"
+            android:layout_margin="5dp"
             >
-            <TextView
+            <fragment
+                android:name="edu.co.javeriana.tais2020.laurel.ui.ads.AdsFragment"
+                android:id="@+id/fragment_ads"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TODO advertisements"
-                />
+                android:layout_height="match_parent">
+            </fragment>
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView

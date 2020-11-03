@@ -28,8 +28,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.top_menu, menu)
-        menu?.let {menu->
-            val searchItem = menu.findItem(R.id.search_icon)
+        menu?.let {
+            val searchItem = it.findItem(R.id.search_icon)
             val searchView = searchItem.actionView as SearchView
             searchView.setOnQueryTextListener(object: SearchView.OnQueryTextListener{
                 override fun onQueryTextSubmit(query: String?): Boolean {
