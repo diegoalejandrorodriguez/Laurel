@@ -34,8 +34,9 @@ class MenuFragment : Fragment() {
             MenuItem(2, "Buscar", "ic_outline_loupe_24dp", 0),
             MenuItem(3, "Notificaciones", "ic_outline_notifications_24dp", 1),
             MenuItem(4, "Mis compras", "ic_outline_shopping_bag_24dp", 0),
-            MenuItem(5, "Mi cuenta", "ic_outline_account_circle_24dp", 0),
-            MenuItem(6, "Vender", "ic_outline_price_tags_24dp", 0)
+            MenuItem(5, "Mi cuenta", "ic_outline_user_24dp", 0),
+            MenuItem(6, "Vender", "ic_outline_tag_24dp", 0),
+            MenuItem(7, "Cerrar sesión", "ic_outline_power_button_24dp", 0)
         ))
 
         return view
